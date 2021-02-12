@@ -1,0 +1,9 @@
+#!/bin/bash
+
+virsh start win10
+
+# prevent scream to run multiple instances
+killall scream
+/home/god/scripts/scream & 
+
+looking-glass-client -F win:minimizeOnFocusLoss=no

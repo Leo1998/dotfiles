@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Windows VM
+Comment=Launches Windows VM with looking-glass and scream
+Exec=/home/god/scripts/start_win10
+#Icon=application.png
+Terminal=false
