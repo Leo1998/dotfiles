@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/home/god/dev/scream/Receivers/unix/build/scream -i virbr0 & 

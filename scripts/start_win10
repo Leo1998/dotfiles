@@ -2,9 +2,4 @@
 
 virsh -c qemu:///system start win10
 
-# prevent scream to run multiple instances
-killall scream
-
-/home/god/dev/scream/Receivers/unix/build/scream -i virbr0 &
-
-/home/god/dev/LookingGlass/client/build/looking-glass-client win:title='Windows VM' win:fullScreen=yes input:escapeKey=109 win:minimizeOnFocusLoss=no app:shmFile='/dev/shm/looking-glass'
+looking-glass-client win:fullScreen=no input:escapeKey=109 win:minimizeOnFocusLoss=no input:grabKeyboardOnFocus=yes app:shmFile='/dev/kvmfr0'
