@@ -2,4 +2,4 @@
 
 virsh -c qemu:///system start win10
 
-looking-glass-client win:fullScreen=no input:escapeKey=109 win:minimizeOnFocusLoss=no input:grabKeyboardOnFocus=yes app:shmFile='/dev/kvmfr0'
+looking-glass-client
