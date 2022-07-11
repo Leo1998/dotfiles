@@ -1,0 +1,16 @@
+#!/bin/sh
+
+vm_name=$1
+command=$2
+
+if [ "$vm_name" = "win10" ]; then
+    if [ "$command" = "started" ]; then
+        systemctl set-property --runtime -- system.slice AllowedCPUs=0,1
+        systemctl set-property --runtime -- user.slice AllowedCPUs=0,1
+        systemctl set-property --runtime -- init.scope AllowedCPUs=0,1
+    elif [ "$command" = "release" ]; then
+        systemctl set-property --runtime -- system.slice AllowedCPUs=0-3
+        systemctl set-property --runtime -- user.slice AllowedCPUs=0-3
+        systemctl set-property --runtime -- init.scope AllowedCPUs=0-3
+    fi
+fi
