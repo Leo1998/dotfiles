@@ -5,10 +5,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-set ai
 set number
+set wrap
+set incsearch
+set showmode
 set hlsearch
-set ruler
+set ai
 
 set novisualbell
 set noerrorbells
@@ -21,7 +23,3 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-try
-  colorscheme desert
-catch
-endtry
