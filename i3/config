@@ -3,7 +3,8 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-font pango:monospace 8
+# font pango:monospace 8
+font pango:SourceCodePro Mono 8
 
 # autostart
 exec --no-startup-id picom -b
@@ -24,7 +25,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -sidebar-mode -font 'SourceCodePro 14'
 
 # kill focused window
 bindsym $mod+Shift+q kill
