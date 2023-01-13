@@ -3,8 +3,8 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-# font pango:monospace 8
-font pango:SourceCodePro Mono 8
+# font pango:monospace 10
+font pango:SourceCodePro Mono 10
 
 # autostart
 exec --no-startup-id picom -b

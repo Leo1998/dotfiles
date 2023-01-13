@@ -12,13 +12,13 @@ general {
 }
 
 #order += "ipv6"
-order += "wireless _first_"
-order += "ethernet _first_"
+#order += "load"
 #order += "battery all"
 order += "cpu_temperature 0"
-#order += "load"
 order += "memory"
 order += "disk /"
+order += "wireless _first_"
+order += "ethernet _first_"
 order += "tztime local"
 
 cpu_temperature 0 {
@@ -27,7 +27,8 @@ cpu_temperature 0 {
 }
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        #format_up = "W: (%quality at %essid) %ip"
+        format_up = "W: %ip (%quality)"
         format_down = "W: down"
 }
 
