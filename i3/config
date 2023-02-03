@@ -25,7 +25,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# start dmenu (a program launcher)
+# start browser
+bindsym $mod+b exec firefox
+
+# start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun -show-icons -sidebar-mode -theme purple -font 'SourceCodePro 14'
 
 # kill focused window
