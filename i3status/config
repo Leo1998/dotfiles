@@ -23,7 +23,8 @@ order += "tztime local"
 
 cpu_temperature 0 {
         format = "Cpu: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+        #path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+        path = "/sys/class/thermal/thermal_zone3/temp"
 }
 
 wireless _first_ {
