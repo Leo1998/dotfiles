@@ -9,6 +9,7 @@ font pango:SourceCodePro Mono 10
 # autostart
 exec --no-startup-id picom -b
 exec_always --no-startup-id dunst
+exec_always --no-startup-id setxkbmap -layout de
 exec_always --no-startup-id xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
 exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 & 
