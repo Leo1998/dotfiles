@@ -9,8 +9,7 @@ font pango:SourceCodePro Mono 10
 # autostart
 exec --no-startup-id picom -b
 exec_always --no-startup-id dunst
-exec_always --no-startup-id setxkbmap -layout de
-exec_always --no-startup-id xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
+exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
 exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 & 
 exec --no-startup-id nm-applet
@@ -24,7 +23,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # start browser
 bindsym $mod+b exec firefox
