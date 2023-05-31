@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -a --delete --exclude-from=/home/$USER/bin/rsync-homedir-ignore.txt --info=progress2 /home/$USER/ /mnt/hdd/home_backup/
