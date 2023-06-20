@@ -7,12 +7,14 @@ set $alt Mod1
 font pango:SourceCodePro Mono 10
 
 # autostart
-exec --no-startup-id picom -b
-exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
+exec --no-startup-id picom -b
+exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 & 
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
+exec --no-startup-id keepassxc & 
 
 # media buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
