@@ -31,7 +31,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show drun -show-icons -sidebar-mode -theme purple -font 'SourceCodePro 14'
+bindsym $mod+d exec rofi -show drun -matching fuzzy -drun-match-fields name -show-icons -sidebar-mode -theme purple -font 'SourceCodePro 14'
 
 # kill focused window
 bindsym $mod+Shift+q kill
