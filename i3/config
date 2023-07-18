@@ -106,7 +106,7 @@ mode "exit: [l]ogout, [h]ibernate, [r]eboot, [s]hutdown" {
   bindsym l exec i3-msg exit
   bindsym h exec systemctl hibernate
   bindsym r exec systemctl reboot
-  bindsym s exec systemctl shutdown
+  bindsym s exec shutdown now
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
