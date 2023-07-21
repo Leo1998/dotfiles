@@ -7,7 +7,7 @@ set $alt Mod1
 font pango:SourceCodePro Mono 10
 
 # autostart
-exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
+exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" && xmodmap -e "keycode 0x42 = Escape"
 exec --no-startup-id picom -b
 exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
@@ -101,16 +101,18 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-#exit mode
-mode "exit: [l]ogout, [h]ibernate, [r]eboot, [s]hutdown" {
-  bindsym l exec i3-msg exit
-  bindsym h exec systemctl hibernate
-  bindsym r exec systemctl reboot
-  bindsym s exec shutdown now
+# system mode
+set $mode_system system: [e]xit, [l]ock, [h]ibernate, [r]eboot, [s]hutdown
+mode "$mode_system" {
+  bindsym e exec i3-msg exit
+  bindsym l exec i3lock, mode "default"
+  bindsym h exec i3lock && systemctl hibernate, mode "default"
+  bindsym r exec systemctl reboot, mode "default"
+  bindsym s exec shutdown now, mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
-bindsym $mod+Shift+e mode "exit: [l]ogout, [h]ibernate, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
