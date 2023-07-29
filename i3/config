@@ -3,8 +3,7 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-# font pango:monospace 10
-font pango:SourceCodePro Mono 10
+font pango:monospace Mono 10
 
 # autostart
 exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" && xmodmap -e "keycode 0x42 = Escape"
