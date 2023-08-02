@@ -1,3 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
-rsync -a --delete --exclude-from=/home/$USER/bin/rsync-homedir-ignore.txt --info=progress2 /home/$USER/ /mnt/hdd/home_backup/
+backupdir=/mnt/hdd0/
+homedir=$backupdir/home_backup
+
+excludefile=/home/$USER/bin/homedir-ignore.txt
+
+if [[ ! -d "$backupdir" ]]; then
+    echo "Backup directory $backupdir does not exist."
+    exit 1
+fi
+
+echo "Backing up ~/ to $homedir"
+rsync -a --delete --exclude-from=$excludefile --info=progress2,name0,stats2 ~/ $homedir
