@@ -13,7 +13,7 @@ exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id pasystray --notify=all
+exec --no-startup-id pasystray --notify=sink --notify=source
 exec --no-startup-id keepassxc & 
 
 # media buttons
