@@ -9,7 +9,7 @@ font pango:monospace Mono 10
 exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" && xmodmap -e "keycode 0x42 = Escape"
 exec --no-startup-id picom -b
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/spacey.jpg
+exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/nebula.png
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
