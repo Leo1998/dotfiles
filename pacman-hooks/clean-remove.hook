@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Cleaning package cache...
+When = PostTransaction
+Depends = pacman-contrib
+Exec = /usr/bin/paccache -ruk0
