@@ -1,0 +1,14 @@
+#!/bin/bash
+
+screen1=HDMI-1
+screen2=DVI-D-1
+tv=HDMI-2
+
+xrandr \
+  --output $screen1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+  --output $screen2 --mode 1920x1080 --pos 1920x0 --rotate normal \
+  --output $tv --mode 3840x2160 --pos 3840x0 --rotate normal --scale 0.5x0.5 \
+
+if [[ $1 != "--tv" ]] ; then
+  xrandr --output $tv --off
+fi
