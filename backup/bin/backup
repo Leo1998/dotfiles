@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+backupdir=$1
+
+if [[ ! -d "$backupdir" ]]; then
+    echo "The provided backup directory \"$backupdir\" does not exist."
+    exit 1
+fi
+
+excludefile=$HOME/bin/homedir-ignore.txt
+homedir=$HOME
+
+target_file=$backupdir/backup_$(date +%Y%m%d-%H%M%S).tar.gz
+echo "Backing up $homedir to $target_file"
+
+size=`du -sk --exclude-from=$excludefile $homedir | cut -f 1`
+
+tar -C $homedir --exclude-from=$excludefile -cf - . | pv -s ${size}k | gzip > $target_file

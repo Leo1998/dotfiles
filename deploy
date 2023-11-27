@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROGS="zsh vim tmux git"
+PROGS="zsh vim tmux git backup"
 
 if [[ $1 == "--i3" ]] ; then
   I3_PROGS="i3 alacritty"
