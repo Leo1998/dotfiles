@@ -11,5 +11,5 @@ fi
 
 # start le i3 window manager
 
-$HOME/bin/setup_screens
+setup_screens
 exec /usr/bin/i3

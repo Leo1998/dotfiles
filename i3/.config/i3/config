@@ -135,7 +135,7 @@ bindsym $mod+r mode "resize"
 
 # panel
 bar {
-        status_command i3status
+        status_command py3status
         position bottom
         #tray_output primary
         tray_output HDMI-1

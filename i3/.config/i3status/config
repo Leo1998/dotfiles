@@ -11,50 +11,51 @@ general {
         interval = 5
 }
 
-order += "cpu_temperature 0"
+order += "lm_sensors"
 order += "memory"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "tztime local"
-#order += "ipv6"
 #order += "load"
 #order += "battery all"
 
-cpu_temperature 0 {
-        format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
-        #path = "/sys/class/thermal/thermal_zone3/temp"
-}
-
-wireless _first_ {
-        format_up = "W: %ip (%quality at %essid)"
-        format_down = "W: down"
-}
-
-ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
-}
-
-battery all {
-        format = "%status %percentage %remaining"
-}
-
-disk "/" {
-        format = "D: %used (%percentage_used used)"
-}
-
-load {
-        format = "L: %1min"
+lm_sensors {
+  chips = ["coretemp-*"]
+  sensors = ["package_id_0"]
+  format_chip = "{format_sensor}"
+  format_sensor = "CPU: "
+  format_sensor += '[\?color=auto.input {input}°C]'
 }
 
 memory {
-        format = "M: %used (%percentage_used used)"
-        threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+  format = "MEM: %used (%percentage_used used)"
+  threshold_degraded = "1G"
+  format_degraded = "MEMORY < %available"
+}
+
+disk "/" {
+  format = "DISK: %used (%percentage_used used)"
+}
+
+wireless _first_ {
+  format_up = "WIFI: %ip (%quality at %essid)"
+  format_down = "WIFI: down"
+}
+
+ethernet _first_ {
+  format_up = "ETH: %ip (%speed)"
+  format_down = "ETH: down"
 }
 
 tztime local {
-        format = "%d.%m.%Y %H:%M"
+  format = "%d.%m.%Y %H:%M"
+}
+
+load {
+  format = "L: %1min"
+}
+
+battery all {
+  format = "%status %percentage %remaining"
 }
