@@ -14,3 +14,4 @@ xrandr \
   --output $screen1 --mode 1920x1080 --pos 0x0 --rotate normal --primary \
   --output $screen2 --mode 1920x1080 --pos 1920x0 --rotate normal \
   --output $tv $TV_PARAMS \
+
