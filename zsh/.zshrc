@@ -1,5 +1,8 @@
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
 export ZSH="$HOME/.oh-my-zsh"
 
 #tty has messed up font otherwise
@@ -10,14 +13,9 @@ else
 fi
 
 plugins=(
-  ssh-agent
   git
   vi-mode
 )
-
-zstyle :omz:plugins:ssh-agent lazy yes
-zstyle :omz:plugins:ssh-agent lifetime 4h
-zstyle :omz:plugins:ssh-agent quiet yes
 
 source $ZSH/oh-my-zsh.sh
 
