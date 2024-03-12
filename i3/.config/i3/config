@@ -6,7 +6,7 @@ set $alt Mod1
 font pango:monospace Mono 10
 
 # autostart
-exec_always --no-startup-id setxkbmap -layout de && xmodmap -e "clear lock" && xmodmap -e "keycode 0x42 = Escape"
+#exec_always --no-startup-id setxkbmap -layout de -option caps:escape
 exec --no-startup-id picom -b
 exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/nebula.png
