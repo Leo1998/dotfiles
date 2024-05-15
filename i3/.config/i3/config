@@ -3,7 +3,7 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-font pango:monospace Mono 10
+font pango:Noto Sans 10
 
 # autostart
 exec --no-startup-id picom -b
@@ -26,6 +26,10 @@ bindsym $mod+Shift+p exec playerctl play-pause
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $mod
 
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
@@ -33,7 +37,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show drun -drun-match-fields name -show-icons -sidebar-mode -theme purple
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'Noto Sans 10' -nb '#000' -i"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -118,15 +122,15 @@ bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
         
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
