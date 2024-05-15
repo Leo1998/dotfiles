@@ -6,21 +6,21 @@ set $alt Mod1
 font pango:monospace Mono 10
 
 # autostart
-#exec_always --no-startup-id setxkbmap -layout de -option caps:escape
 exec --no-startup-id picom -b
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill ~/dev/dotfiles/wallpaper/nebula.png
-exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
+exec --no-startup-id feh --bg-fill ~/.wallpaper.png
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id pasystray --notify=sink --notify=source
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
 exec --no-startup-id keepassxc & 
 
 # media buttons
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+Shift+m exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym $mod+Shift+m exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym $mod+Shift+p exec playerctl play-pause 
 
 # Use Mouse+$super to drag floating windows to their wanted position
@@ -107,8 +107,8 @@ bindsym $mod+Shift+r restart
 set $mode_system system: [e]xit, [l]ock, [h]ibernate, [r]eboot, [s]hutdown
 mode "$mode_system" {
   bindsym e exec i3-msg exit
-  bindsym l exec i3lock, mode "default"
-  bindsym h exec i3lock && systemctl hibernate, mode "default"
+  bindsym l exec loginctl lock-session, mode "default"
+  bindsym h exec systemctl hibernate, mode "default"
   bindsym r exec systemctl reboot, mode "default"
   bindsym s exec systemctl poweroff, mode "default"
   bindsym Escape mode "default"

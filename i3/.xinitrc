@@ -11,5 +11,5 @@ fi
 
 # start le i3 window manager
 
-bin/setup_screens
+.screenlayout/default.sh
 exec i3
