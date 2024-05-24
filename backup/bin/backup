@@ -11,7 +11,7 @@ fi
 excludefile=$HOME/bin/homedir-ignore.txt
 homedir=$HOME
 
-target_file=$backupdir/backup_$(date +%Y%m%d-%H%M%S).tar.gz
+target_file=$backupdir/$(uname -n)_$(date +%Y%m%d-%H%M%S).tar.gz
 echo "Backing up $homedir to $target_file"
 
 size=`du -sk --exclude-from=$excludefile $homedir | cut -f 1`
