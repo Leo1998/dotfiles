@@ -10,7 +10,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/.wallpaper.png
-exec --no-startup-id flameshot
+#exec --no-startup-id flameshot
 
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
 exec --no-startup-id keepassxc & 
@@ -154,6 +154,4 @@ bar {
 focus_follows_mouse no
 hide_edge_borders both
 
-for_window [class="^steam$" title="^Friends List$"] floating enable, resize set 800 600
-for_window [class="^steam$" title="Steam - News"] floating enable, resize set 800 600
-for_window [class="^steam$" title="^Steam Settings$"] floating enable, resize set 800 600
+include config.d/*.conf
