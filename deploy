@@ -6,5 +6,11 @@ if [[ $1 == "--i3" ]] ; then
   I3_PROGS="i3 alacritty wallpaper"
   PROGS="${PROGS} ${I3_PROGS}"
 fi
+
+if [[ $1 == "--sway" ]] ; then
+  I3_PROGS="sway alacritty wallpaper"
+  PROGS="${PROGS} ${I3_PROGS}"
+fi
+
 echo "Installing ${PROGS}"
 stow $PROGS -t $HOME
