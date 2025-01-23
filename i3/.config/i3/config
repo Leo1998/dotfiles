@@ -12,7 +12,7 @@ exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/.wallpaper.png
 #exec --no-startup-id flameshot
 
-exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & 
+exec --no-startup-id /usr/bin/lxpolkit & 
 exec --no-startup-id keepassxc & 
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray --notify=sink --notify=source
@@ -120,8 +120,8 @@ mode "$mode_system" {
   bindsym e exec i3-msg exit
   bindsym l exec loginctl lock-session, mode "default"
   bindsym h exec systemctl hibernate, mode "default"
-  bindsym r exec systemctl reboot, mode "default"
-  bindsym s exec systemctl poweroff, mode "default"
+  bindsym r exec systemctl reboot && i3-msg exit, mode "default"
+  bindsym s exec systemctl poweroff && i3-msg exit, mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
