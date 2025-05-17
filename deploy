@@ -2,9 +2,22 @@
 
 PROGS="zsh vim tmux git backup"
 
-if [[ $1 == "--i3" ]] ; then
-  I3_PROGS="i3 alacritty wallpaper"
-  PROGS="${PROGS} ${I3_PROGS}"
-fi
+while [ ! -z "$1" ]; do
+  case "$1" in
+     -i3)
+         shift
+         PROGS="${PROGS} i3 alacritty wallpaper"
+         ;;
+     -heaven)
+         shift
+         PROGS="${PROGS} heaven"
+         ;;
+     *)
+        shift
+        echo "Unknown input arg!"
+        ;;
+  esac
+done
+
 echo "Installing ${PROGS}"
 stow $PROGS -t $HOME
