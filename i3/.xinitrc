@@ -11,5 +11,8 @@ fi
 
 # start le i3 window manager
 
+xset -dpms # disable DPMS
+
 .screenlayout/default.sh
+
 exec i3
