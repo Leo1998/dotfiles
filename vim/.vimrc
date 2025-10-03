@@ -1,8 +1,8 @@
 syntax on
 set history=500
 
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 set number
@@ -20,6 +20,6 @@ set tm=500
 highlight Comment ctermfg=green
 
 if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
+    set t_Co=256
 endif
 
