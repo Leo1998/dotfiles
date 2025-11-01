@@ -1,5 +1,7 @@
 # adapted from https://github.com/rubo77/rsync-homedir-excludes
 
+Nextcloud
+
 .local/share/Steam
 .var/app/com.valvesoftware.Steam/.local/share/Steam
 .steam

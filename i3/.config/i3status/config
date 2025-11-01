@@ -24,8 +24,8 @@ load {
 }
 
 lm_sensors {
-  chips = ["coretemp-*"]
-  sensors = ["package_id_0"]
+  chips = ["it8696-isa-0a40"]
+  sensors = ["temp3"]
   format_chip = "{format_sensor}"
   format_sensor = "CPU: "
   format_sensor += '[\?color=auto.input {input}°C]'
