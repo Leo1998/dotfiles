@@ -9,7 +9,7 @@ font pango:Noto Sans 10
 exec --no-startup-id picom -b
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill ~/.wallpaper.png
+exec --no-startup-id feh --bg-fill ~/.wallpaper.jpg
 
 exec --no-startup-id /usr/bin/lxpolkit & 
 exec --no-startup-id keepassxc & 
