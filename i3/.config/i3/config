@@ -6,10 +6,11 @@ set $alt Mod1
 font pango:Noto Sans 10
 
 # autostart
-exec --no-startup-id picom -b
+exec_always --no-startup-id .screenlayout/default.sh
+exec_always --no-startup-id picom
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill ~/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/.wallpaper.jpg
 
 exec --no-startup-id /usr/bin/lxpolkit & 
 exec --no-startup-id keepassxc & 
@@ -38,7 +39,7 @@ bindsym $mod+Return exec alacritty
 # start browser
 bindsym $mod+b exec firefox
 
-# start rofi (a program launcher)
+# start dmenu (a program launcher)
 bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'Noto Sans 10' -nb '#000' -i"
 
 # kill focused window
