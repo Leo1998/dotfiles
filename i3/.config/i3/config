@@ -3,7 +3,7 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-font pango:Noto Sans 10
+font pango:Noto Sans Regular 11
 
 # autostart
 exec_always --no-startup-id .screenlayout/default.sh
@@ -16,7 +16,8 @@ exec --no-startup-id dunst
 
 exec --no-startup-id /usr/bin/lxpolkit & 
 exec --no-startup-id keepassxc & 
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet & 
+exec --no-startup-id blueman-applet & 
 exec --no-startup-id pasystray --notify=sink --notify=source
 
 # media buttons
@@ -46,7 +47,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'Noto Sans 10' -nb '#000' -i"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'Noto Sans Regular 11' -nb '#000' -i"
 
 # kill focused window
 bindsym $mod+Shift+q kill
