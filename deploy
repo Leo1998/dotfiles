@@ -6,7 +6,7 @@ while [ ! -z "$1" ]; do
   case "$1" in
      -i3)
          shift
-         PROGS="${PROGS} i3 alacritty wallpaper"
+         PROGS="${PROGS} i3 alacritty fonts wallpaper"
          ;;
      -heaven)
          shift

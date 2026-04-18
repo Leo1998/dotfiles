@@ -3,7 +3,7 @@ set $mod Mod4
 set $alt Mod1
 
 # set font
-font pango:Noto Sans Regular 11
+font pango:JetBrainsMono Nerd Font Regular 10
 
 # autostart
 exec_always --no-startup-id .screenlayout/default.sh
@@ -47,7 +47,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'Noto Sans Regular 11' -nb '#000' -i"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -b -fn 'JetBrainsMono Nerd Font-12' -nb '#000' -i"
 
 # kill focused window
 bindsym $mod+Shift+q kill
