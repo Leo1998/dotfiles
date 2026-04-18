@@ -1,57 +1,30 @@
-# i3status configuration file.
-# see "man i3status" for documentation.
-
-# It is important that this file is edited as UTF-8.
-# The following line should contain a sharp s:
-# ß
-# If the above line is not correctly displayed, fix your editor first!
-
 general {
   colors = true
   interval = 5
 }
 
-#order += "load"
-order += "lm_sensors"
+order += "sysdata"
 order += "memory"
 order += "disk /"
-order += "wireless _first_"
-order += "ethernet _first_"
+order += "networkmanager"
 order += "battery_level"
 order += "tztime local"
 
-load {
-  format = "LOAD: %1min"
-}
-
-lm_sensors {
-  chips = ["it8696-isa-0a40"]
-  sensors = ["temp3"]
-  format_chip = "{format_sensor}"
-  format_sensor = "CPU: "
-  format_sensor += '[\?color=auto.input {input}°C]'
+sysdata {
+    format = "CPU: {cpu_usage}% ({cpu_temp}°C)"
 }
 
 memory {
-  format = "MEM: %used (%percentage_used used)"
-  threshold_degraded = "1G"
-  format_degraded = "MEMORY < %available"
+  format = "MEM: %used (%percentage_used)"
 }
 
 disk "/" {
-  format = "DISK: %used (%percentage_used used)"
+  format = "DISK: %used (%percentage_used)"
 }
 
-wireless _first_ {
-  format_up = "WIFI: %ip (%quality at %essid)"
-  format_down = "WIFI: down"
+networkmanager {
+  format_device = "[\?if=general_connection {general_device} [\?color=good {ip4_address1}] [\?soft ][\?color=ap_signal ({ap_signal}% at {ap_ssid})][\?soft ]]"
 }
-
-ethernet _first_ {
-  format_up = "ETH: %ip (%speed)"
-  format_down = "ETH: down"
-}
-
 battery_level {
   format = "{percent}% ({time_remaining})"
   color_charging = "#00FF00"
