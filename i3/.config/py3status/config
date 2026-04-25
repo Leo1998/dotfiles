@@ -1,0 +1,38 @@
+general {
+    colors = true
+    interval = 5
+}
+
+order += "sysdata"
+order += "memory"
+order += "disk /"
+order += "networkmanager"
+order += "battery_level"
+order += "tztime local"
+
+sysdata {
+    format = "CPU: {cpu_usage}% ([\?color=cpu_temp {cpu_temp} °C])"
+    thresholds = [(0, "good"), (75, "degraded"), (85, "bad")]
+}
+
+memory {
+    format = "MEM: %used (%percentage_used)"
+}
+
+disk "/" {
+    format = "DISK: %used (%percentage_used)"
+}
+
+networkmanager {
+    format_device = "[\?if=general_connection {general_device} [\?color=good {ip4_address1}] [\?soft ][\?color=ap_signal ({ap_signal}% at {ap_ssid})][\?soft ]]"
+}
+
+battery_level {
+    format = "{percent}% ({time_remaining})"
+    color_charging = "#00FF00"
+    notification = true
+}
+
+tztime local {
+    format = "%d.%m.%Y %H:%M"
+}
