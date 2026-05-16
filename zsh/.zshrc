@@ -1,7 +1,9 @@
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 unset SSH_AGENT_PID
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
 
 export ZSH="$HOME/.config/oh-my-zsh"
 
